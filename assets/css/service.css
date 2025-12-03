@@ -392,7 +392,6 @@ body {
 .service-pricing {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
@@ -763,6 +762,14 @@ body {
   .hero-section {
     min-height: 80vh;
   }
+
+  .hero-logo-wrapper {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+  
 
   .hero-section h1 {
     font-size: clamp(3.2rem, 9vw, 4.8rem);

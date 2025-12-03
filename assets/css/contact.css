@@ -152,6 +152,7 @@ body {
   padding: 2rem;
 }
 
+
 .hero-badge {
   display: inline-block;
   padding: 12px 32px;
@@ -1093,6 +1094,14 @@ body {
     flex-direction: column;
     gap: 2rem;
   }
+
+
+.hero-logo-wrapper {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  margin-bottom: 2rem;
+}
   
   .hero-section {
     min-height: 80vh;

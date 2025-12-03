@@ -913,6 +913,15 @@ body {
   .hero-section {
     min-height: 80vh;
   }
+
+
+.hero-logo-wrapper {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+  
   
   .story-highlights {
     gap: 1.5rem;
