@@ -1,5 +1,34 @@
 (function () {
   let windowBindingsSetup = false;
+  const baseURL = (() => {
+    const override = document.documentElement.getAttribute("data-site-base");
+    if (override) {
+      return new URL(ensureTrailingSlash(override), window.location.origin);
+    }
+    const scriptEl = document.querySelector('script[src*="navmenu.js"]');
+    if (!scriptEl) {
+      return new URL("/", window.location.origin);
+    }
+    const absoluteSrc = new URL(scriptEl.getAttribute("src"), window.location.href);
+    const basePath = absoluteSrc.pathname.replace(/assets\/js\/navmenu\.js$/, "");
+    return new URL(basePath || "/", absoluteSrc.origin);
+  })();
+
+  function ensureTrailingSlash(value) {
+    return value.endsWith("/") ? value : `${value}/`;
+  }
+
+  function resolvePath(relativePath) {
+    if (!relativePath) {
+      return null;
+    }
+    if (/^https?:\/\//i.test(relativePath)) {
+      return relativePath;
+    }
+    const normalized = relativePath.replace(/^\/+/, "");
+    const resolvedURL = new URL(normalized, baseURL);
+    return resolvedURL.href;
+  }
 
   function initNavMenu(root = document) {
     const menuToggle = root.querySelector("#menuToggle");
@@ -9,6 +38,13 @@
     if (!menuToggle || menuToggle.dataset.bound === "true") {
       return;
     }
+
+    root.querySelectorAll("a[data-path]").forEach((link) => {
+      const resolved = resolvePath(link.getAttribute("data-path"));
+      if (resolved) {
+        link.setAttribute("href", resolved);
+      }
+    });
 
     function toggleMenu(force) {
       const willOpen = typeof force === "boolean" ? force : !body.classList.contains("menu-open");

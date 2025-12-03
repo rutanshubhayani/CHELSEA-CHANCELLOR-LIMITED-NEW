@@ -1,8 +1,42 @@
+const loaderBaseURL = (() => {
+  const override = document.documentElement.getAttribute("data-site-base");
+  if (override) {
+    return new URL(ensureTrailingSlash(override), window.location.origin);
+  }
+  const scriptEl = document.currentScript || document.querySelector('script[src*="components-loader.js"]');
+  if (!scriptEl) {
+    return new URL("/", window.location.origin);
+  }
+  const absolute = new URL(scriptEl.getAttribute("src"), window.location.href);
+  const basePath = absolute.pathname.replace(/assets\/js\/components-loader\.js$/, "");
+  return new URL(basePath || "/", absolute.origin);
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-component-src]").forEach((target) => {
     loadComponent(target);
   });
 });
+
+function ensureTrailingSlash(value) {
+  return value.endsWith("/") ? value : `${value}/`;
+}
+
+function resolveComponentPath(relativePath) {
+  if (!relativePath) return null;
+  if (/^https?:\/\//i.test(relativePath)) return relativePath;
+  const normalized = relativePath.replace(/^\/+/, "");
+  return new URL(normalized, loaderBaseURL).href;
+}
+
+function applyDataPaths(target) {
+  target.querySelectorAll("[data-path]").forEach((node) => {
+    const resolved = resolveComponentPath(node.getAttribute("data-path"));
+    if (resolved) {
+      node.setAttribute("href", resolved);
+    }
+  });
+}
 
 async function loadComponent(target) {
   const src = target.getAttribute("data-component-src");
@@ -30,6 +64,8 @@ function injectComponent(htmlString, target) {
   const markup = doc.body ? doc.body.innerHTML : htmlString;
   target.innerHTML = markup;
 
+  applyDataPaths(target);
+
   if (typeof window.initNavMenu === "function" && target.dataset.component === "navmenu") {
     window.initNavMenu(target);
   }
@@ -46,6 +82,7 @@ function loadComponentViaIframe(src, target) {
       doc.querySelectorAll("script").forEach((node) => node.remove());
       const markup = doc.body ? doc.body.innerHTML : "";
       target.innerHTML = markup;
+      applyDataPaths(target);
       if (typeof window.initNavMenu === "function" && target.dataset.component === "navmenu") {
         window.initNavMenu(target);
       }
