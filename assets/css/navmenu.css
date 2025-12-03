@@ -14,10 +14,17 @@
   padding: 0;
 }
 
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--nav-font);
   color: var(--fg);
   min-height: 100vh;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -101,7 +108,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.85rem 2.2rem 0.8rem 1.7rem;
+  padding: 0.85rem 1.2rem 0.8rem 1.7rem;
   border-radius: 0.65rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
   background: rgba(235, 235, 241, 0.92);
@@ -383,6 +390,37 @@ body.menu-open .menu-link span {
 
   .nav-links-inline {
     display: none;
+  }
+
+  .menu-toggle {
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0;
+    letter-spacing: 0;
+    font-size: 0;
+  }
+
+  /* Replace text label with minimalist hamburger icon */
+  .menu-toggle::before,
+  .menu-toggle::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .menu-toggle::before {
+    top: calc(50% - 10px);
+    box-shadow: 0 10px 0 currentColor;
+  }
+
+  .menu-toggle::after {
+    top: calc(50% + 10px);
   }
 
   .menu-overlay {
