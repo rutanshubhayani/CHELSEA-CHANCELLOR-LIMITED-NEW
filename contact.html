@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/css/navmenu.css">
   <link rel="stylesheet" href="assets/css/contact.css">
   <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -24,28 +25,28 @@
       </div>
     </div>
     <div class="hero-content">
-      <div class="hero-badge">Legal Excellence</div>
-      <h1>
+      <div class="hero-badge" data-aos="fade-up">Legal Excellence</div>
+      <h1 data-aos="fade-up" data-aos-delay="100">
         <span class="hero-line">Let's Start</span>
         <span class="hero-line hero-line-accent">Your Legal Journey</span>
       </h1>
-      <p>Experience personalized legal solutions with Chelsea Chancellor Limited - where expertise meets innovation</p>
-      <div class="hero-stats">
-        <div class="stat-item">
+      <p data-aos="fade-up" data-aos-delay="200">Experience personalized legal solutions with Chelsea Chancellor Limited - where expertise meets innovation</p>
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
           <div class="stat-icon">
             <i class="fas fa-user-tie"></i>
           </div>
           <span class="stat-number">15+</span>
           <span class="stat-label">Years Experience</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="500">
           <div class="stat-icon">
             <i class="fas fa-trophy"></i>
           </div>
           <span class="stat-number">500+</span>
           <span class="stat-label">Cases Won</span>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="600">
           <div class="stat-icon">
             <i class="fas fa-clock"></i>
           </div>
@@ -59,7 +60,7 @@
   <!-- Contact Section -->
   <section class="contact-section">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header" data-aos="fade-up">
         <div class="section-badge">Get In Touch</div>
         <h2>Ready to discuss your case?</h2>
         <p>Choose your preferred way to connect with our legal experts</p>
@@ -68,7 +69,7 @@
       <div class="contact-grid">
         
         <!-- Contact Form -->
-        <div class="contact-form-wrapper">
+        <div class="contact-form-wrapper" data-aos="fade-right" data-aos-delay="100">
           <div class="form-header">
             <div class="form-icon">
               <i class="fas fa-envelope"></i>
@@ -159,11 +160,11 @@
         </div>
         
         <!-- Contact Methods -->
-        <div class="contact-methods-wrapper">
+        <div class="contact-methods-wrapper" data-aos="fade-left" data-aos-delay="200">
           <div class="contact-methods">
             
             <!-- Mail Us -->
-            <div class="contact-method mail-method">
+            <div class="contact-method mail-method" data-aos="fade-up" data-aos-delay="300">
               <div class="method-icon">
                 <i class="fas fa-envelope-open-text"></i>
                 <div class="icon-pulse"></div>
@@ -185,7 +186,7 @@
          
 
             <!-- Office Visit -->
-            <div class="contact-method visit-method">
+            <div class="contact-method visit-method" data-aos="fade-up" data-aos-delay="400">
               <div class="method-icon">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
@@ -211,7 +212,7 @@
 
         
           <!-- Office Info Card -->
-          <div class="office-card">
+          <div class="office-card" data-aos="fade-up" data-aos-delay="500">
             <div class="office-header">
               <h4>London Office</h4>
               <div class="office-status">
@@ -244,13 +245,13 @@
   <!-- Interactive Map Section -->
   <section class="map-section">
     <div class="container">
-      <div class="map-header">
+      <div class="map-header" data-aos="fade-up">
         <h2>Visit Our Office</h2>
         <p>Located in the heart of London's legal district</p>
       </div>
       
       <div class="map-container">
-        <div class="map-wrapper">
+        <div class="map-wrapper" data-aos="fade-right" data-aos-delay="100">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.2503504870143!2d-0.09968968422915405!3d51.51562897963591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b323093d5e3%3A0x2078c0b8c9f80b1!2sCity%20of%20London%2C%20London%2C%20UK!5e0!3m2!1sen!2sus!4v1647123456789!5m2!1sen!2sus" 
                   width="100%" 
                   height="500" 
@@ -266,7 +267,7 @@
           </div>
         </div>
         
-        <div class="map-info">
+        <div class="map-info" data-aos="fade-left" data-aos-delay="200">
           <div class="transport-options">
             <h4>How to reach us</h4>
             <div class="transport-item">
@@ -297,17 +298,26 @@
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
-      <div class="cta-content">
-        <h2>Ready to Get Started?</h2>
-        <p>Schedule a consultation with our experienced legal team today</p>
-        <a href="mailto:info@chelseachancellor.com" class="cta-button">Contact Us</a>
+      <div class="cta-content" data-aos="fade-up">
+        <h2 data-aos="fade-up" data-aos-delay="100">Ready to Get Started?</h2>
+        <p data-aos="fade-up" data-aos-delay="200">Schedule a consultation with our experienced legal team today</p>
+        <a href="mailto:info@chelseachancellor.com" class="cta-button" data-aos="zoom-in" data-aos-delay="300">Contact Us</a>
       </div>
     </div>
   </section>
 
   <script defer src="assets/js/navmenu.js"></script>
   <script defer src="assets/js/components-loader.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+      easing: 'ease-in-out'
+    });
+
     // Enhanced form handling with better UX
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
