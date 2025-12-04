@@ -107,7 +107,7 @@
   }
 
   .logo-main {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .logo-main::after {
@@ -116,11 +116,11 @@
   }
 
   .logo-sub {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 0.2em;
   }
 
   .logo-tagline {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 }
